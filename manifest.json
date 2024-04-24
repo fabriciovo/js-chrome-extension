@@ -1,0 +1,48 @@
+{
+  "name": "Hello Extensions",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "hello_extensions.png"
+  },
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content_script.js"
+      ]
+    }
+  ],
+  "commands": {
+    "focusInput": {
+      "suggested_key": "Ctrl+K",
+      "description": "First command",
+      "global": true
+    },
+    "close": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Ctrl+Shift+K"
+      },
+      "description": "Close Tab"
+    },
+    "_execute_action": {
+      "suggested_key": {
+        "windows": "Ctrl+K",
+        "mac": "Ctrl+K",
+        "chromeos": "Ctrl+K",
+        "linux": "Ctrl+K"
+      }
+    }
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}
